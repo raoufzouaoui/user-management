@@ -1,0 +1,64 @@
+<nav class="navbar navbar-expand-lg" style="background-color: #1b70b6;">
+
+  <div class="logo-container">
+    <a routerLink="/user-list" class="navbar-brand logo" style="transition: transform 0.3s;">
+      <img style="height: 65px;" src="https://cdn-icons-png.flaticon.com/512/1570/1570250.png" alt="Logo">
+    </a>
+    <span class="navbar-brand navb hover-text" routerLink="/user-list" style="font-size: 150%; margin-left: 20px; cursor: pointer;">Gestion utilisateur</span>
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarResponsive">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <button class="btn btn-light navbar-brand" routerLink="/add-user" style="cursor: pointer;">Ajouter utilisateur</button>
+      </li>
+      <li class="nav-item">
+        <div class="d-flex">
+          <input type="search" (ngModelChange)="searchUsers(key.value)" #key="ngModel" ngModel name="key"
+            id="searchName" class="form-control" style="width: 150px;" placeholder="🔍" required >
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
+
+
+
+<div class="collapse navbar-collapse justify-content-end" id="navbarColor02">
+  <div class="d-flex">
+    <input type="search" (ngModelChange)="searchUsers(key.value)" #key="ngModel" ngModel
+       name="key" id="searchName" class="form-control mr-sm-2" placeholder="🔍" required>
+  </div>
+</div>
+
+
+<body>
+
+  <div class="container" id="main-container">
+    <div class="row">
+      <div *ngFor="let user of users" class="col-md-6 col-xl-3">
+         <div class="card m-b-30" style="margin-top: 10%;">
+            <div class="card-body row">
+               <div class="col-6">
+                  <a href=""><img src="{{user?.imageUrl}}" alt="" class="img-fluid rounded-circle w-60 fixed-size-img"></a>
+               </div>
+               <div class="col-6 card-title align-self-center mb-0">
+                  <h5>{{user?.firstName}}</h5>
+                  <p class="m-0">{{user?.lastName}}</p>
+               </div>
+            </div>
+            <ul class="list-group list-group-flush">
+               <li class="list-group-item"><i class="fa fa-envelope float-right"></i>{{user?.profession}}</li>
+               <a [routerLink]="['/user', user?.id]" class="btn btn-primary float-right" style="margin-left: 10px;">Afficher Détails</a>
+              </ul>
+         </div>
+      </div>
+    </div>
+  </div>
+</body>

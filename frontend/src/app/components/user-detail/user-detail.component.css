@@ -1,0 +1,58 @@
+.navbar-brand-button {
+  color: rgb(255, 255, 255);
+  margin-left: 3%;
+  background-color: transparent;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+}
+
+.navbar-brand,
+.btn {
+  cursor: pointer;
+}
+
+.hover-text {
+  color: white; 
+  transition: color 0.3s; 
+}
+
+.hover-text:hover {
+  color: #d6e5f1;
+}
+
+.logo:hover {
+  transform: scale(1.1); 
+}
+
+
+.navbar-brand-button:hover {
+  color: #d6e5f1;
+  text-decoration: underline;
+}
+
+.navbar {
+  font-family: 'Arial', sans-serif; 
+}
+
+.navb {
+  font-weight: bold; 
+}
+
+.navbar-toggler {
+  border: none; 
+}
+
+.navbar-toggler-icon {
+  background-color: white; 
+}
+
+
+
+@media (max-width: 768px) {
+  .navbar-brand-button {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;
+  }
+}

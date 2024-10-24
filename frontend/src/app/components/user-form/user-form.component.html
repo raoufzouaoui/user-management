@@ -1,0 +1,85 @@
+<nav class="navbar navbar-expand-lg" style="background-color: #1b70b6;">
+
+  <div class="logo-container">
+    <a routerLink="/user-list" class="navbar-brand logo" style="transition: transform 0.3s;">
+      <img style="height: 65px;" src="https://cdn-icons-png.flaticon.com/512/1570/1570250.png" alt="Logo">
+    </a>
+    <span class="navbar-brand navb hover-text" routerLink="/user-list" style="font-size: 150%; margin-left: 20px; cursor: pointer;">Gestion utilisateur</span>
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+
+</nav>
+
+
+<div class="container mt-5">
+  <h2 class="mb-4 text-center">Ajouter un nouvel utilisateur</h2>
+
+  <div class="form-container border border-primary rounded p-3 shadow">
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()" novalidate>
+      <div class="form-group">
+        <label for="firstname">Prénom</label>
+        <input type="text" id="firstname" formControlName="firstName" class="form-control"
+          [ngClass]="{'is-invalid': userForm.get('firstName')?.invalid && (userForm.get('firstName')?.touched || userForm.get('firstName')?.dirty)}">
+        <div class="invalid-feedback" *ngIf="userForm.get('firstName')?.errors?.['required']">Le prénom est requis.</div>
+      </div>
+
+      <div class="form-group">
+        <label for="lastname">Nom</label>
+        <input type="text" id="lastname" formControlName="lastName" class="form-control"
+          [ngClass]="{'is-invalid': userForm.get('lastName')?.invalid && (userForm.get('lastName')?.touched || userForm.get('lastName')?.dirty)}">
+        <div class="invalid-feedback" *ngIf="userForm.get('lastName')?.errors?.['required']">Le nom est requis.</div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" formControlName="email" class="form-control"
+          [ngClass]="{'is-invalid': userForm.get('email')?.invalid && (userForm.get('email')?.touched || userForm.get('email')?.dirty)}">
+        <div class="invalid-feedback" *ngIf="userForm.get('email')?.errors?.['required']">Un email valide est requis.</div>
+        <div class="invalid-feedback" *ngIf="userForm.get('email')?.errors?.['email']">Format de l'email invalide.</div>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Téléphone</label>
+        <input type="text" id="phone" formControlName="phone" class="form-control"
+          [ngClass]="{'is-invalid': userForm.get('phone')?.invalid && (userForm.get('phone')?.touched || userForm.get('phone')?.dirty)}">
+        <div class="invalid-feedback" *ngIf="userForm.get('phone')?.errors?.['required']">Veuillez renseigner le numéro de téléphone.</div>
+      </div>
+
+      <div class="form-group">
+        <label for="dateofbirth">Date de naissance</label>
+        <input type="date" id="dateofbirth" formControlName="dateOfBirth" class="form-control"
+          [ngClass]="{'is-invalid': userForm.get('dateOfBirth')?.invalid && (userForm.get('dateOfBirth')?.touched || userForm.get('dateOfBirth')?.dirty)}">
+        <div class="invalid-feedback" *ngIf="userForm.get('dateOfBirth')?.errors?.['required']">Veuillez renseigner la date de naissance.</div>
+      </div>
+
+      <div class="form-group">
+        <label for="imageUrl">Image URL</label>
+        <input type="text" id="imageUrl" formControlName="imageUrl" class="form-control"
+          [ngClass]="{'is-invalid': userForm.get('imageUrl')?.invalid && (userForm.get('imageUrl')?.touched || userForm.get('imageUrl')?.dirty)}">
+        <div class="invalid-feedback" *ngIf="userForm.get('imageUrl')?.errors?.['required']">Veuillez renseigner l'URL de l'image.</div>
+      </div>
+
+      <div class="form-group">
+        <label for="profession">Profession</label>
+        <input type="text" id="profession" formControlName="profession" class="form-control"
+          [ngClass]="{'is-invalid': userForm.get('profession')?.invalid && (userForm.get('profession')?.touched || userForm.get('profession')?.dirty)}">
+        <div class="invalid-feedback" *ngIf="userForm.get('profession')?.errors?.['required']">Le champ profession est requis.</div>
+      </div>
+
+      <div class="button">
+        <button type="submit" class="btn btn-primary" [disabled]="!userForm.valid">Ajouter</button>
+        <a routerLink="/user-list" class="btn btn-secondary">Retour à la liste des utilisateurs</a>
+      </div>
+
+
+    </form>
+    <div *ngIf="errorMessage" class="alert alert-danger" role="alert" >
+      {{ errorMessage }}
+    </div>
+
+  </div>
+</div>

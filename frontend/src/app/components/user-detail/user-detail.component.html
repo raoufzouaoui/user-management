@@ -1,0 +1,54 @@
+<nav class="navbar navbar-expand-lg" style="background-color: #1b70b6;">
+
+  <div class="logo-container">
+    <a routerLink="/user-list" class="navbar-brand logo" style="transition: transform 0.3s;">
+      <img style="height: 65px;" src="https://cdn-icons-png.flaticon.com/512/1570/1570250.png" alt="Logo">
+    </a>
+    <span class="navbar-brand navb hover-text" routerLink="/user-list" style="font-size: 150%; margin-left: 20px; cursor: pointer;">Gestion utilisateur</span>
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarResponsive">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <button class="btn btn-light navbar-brand" routerLink="/add-user" style="cursor: pointer;">Ajouter utilisateur</button>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<body>
+
+<div class="container" id="main-container">
+  <h2>Détails de l'utilisateur {{user?.firstName}} {{user?.lastName}} :</h2>
+  <div class="row">
+      <div class="col-md-6 offset-md-3">
+          <div class="card m-b-30" style="margin-top: 20px;">
+              <div class="card-body">
+                  <div class="row">
+                      <div class="col-4 text-center">
+                          <img src="{{ user?.imageUrl }}" alt="Image de l'utilisateur" class="img-fluid rounded-circle fixed-size-img">
+                      </div>
+                      <div class="col-8">
+                          <p class="m-0"><strong>Prénom:</strong> {{ user?.firstName ?? 'Chargement...' }}</p>
+                          <p class="m-0"><strong>Nom:</strong> {{ user?.lastName ?? 'Chargement...' }}</p>
+                          <p class="m-0"><strong>Email:</strong> {{ user?.email ?? 'Chargement...' }}</p>
+                          <p class="m-0"><strong>Téléphone:</strong> {{ user?.phone ?? 'Chargement...' }}</p>
+                          <p class="m-0"><strong>Date de naissance:</strong> {{ user?.dateOfBirth ?? 'Chargement...' }}</p>
+                          <p class="m-0"><strong>Profession:</strong> {{ user?.profession ?? 'Chargement...' }}</p>
+                      </div>
+                  </div>
+                  <div class="text-center" style="margin-top: 15px;">
+                      <a routerLink="/user-list" class="btn btn-secondary">Retour à la liste des utilisateurs</a>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+</body>
+
