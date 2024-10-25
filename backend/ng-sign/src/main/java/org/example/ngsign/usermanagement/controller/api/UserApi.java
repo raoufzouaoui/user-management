@@ -13,14 +13,14 @@ import java.util.List;
 public interface UserApi {
 
     @PostMapping(Constants.UTILISATEUR_ENDPOINT + "/create")
-    ResponseEntity<UserDto> save(@RequestBody UserDto dto); // Updated return type
+    ResponseEntity<UserDto> save(@RequestBody UserDto dto); 
 
     @GetMapping(Constants.UTILISATEUR_ENDPOINT + "/find/id/{id}")
-    ResponseEntity<UserDto> findById(@PathVariable("id") Long id); // Updated return type
+    ResponseEntity<UserDto> findById(@PathVariable("id") Long id); 
 
     @GetMapping(Constants.UTILISATEUR_ENDPOINT + "/find/email/{email}")
-    ResponseEntity<UserDto> findByEmail(@PathVariable("email") String email); // Updated return type
+    ResponseEntity<UserDto> findByEmail(@PathVariable("email") String email); 
 
     @GetMapping(Constants.UTILISATEUR_ENDPOINT + "/find/all")
-    ResponseEntity<List<UserDto>> findAll(); // Updated return type
+    ResponseEntity<List<UserDto>> findAll(); 
 }
